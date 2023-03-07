@@ -27,16 +27,22 @@ def genderRecgnition(file_path):
         predicted_gender = 'unknown'
 
     print('Predicted gender:', predicted_gender)
+    return predicted_gender
 
 
+# a function that change the pitch according to gender
 def pitchChanger(v, sr, filepath1):
-    v_third = librosa.effects.pitch_shift(v, sr=sr, n_steps=1, bins_per_octave=2)
-    genderRecgnition(filepath1)
+    gender = genderRecgnition(filepath1)
+    # change the pitch according to gender
+    if gender == "male":
+        v = librosa.effects.pitch_shift(v, sr=sr, n_steps=6)
+    elif gender == "female":
+        v = librosa.effects.pitch_shift(v, sr=sr, n_steps=-6)
 
-    return v_third
+    return v
 
 
-# Load our voice wih librosa
+# Load a speech wih librosa
 voice, sr = librosa.load("example.wav", sr=None, mono=False)
 if voice.ndim > 1:
     voice = voice[0, :]
