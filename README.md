@@ -9,25 +9,25 @@ So, to do this project i use an structure like following picture:
 \
 ![image](https://user-images.githubusercontent.com/58389567/223437677-73573cc9-a4b2-4096-be50-520a948dcb91.png)
 \
-But before do this, we need to find the gender of input audion before shifting pitch; So our projecف is divided into the following sections:
+But before do this, we need to find the gender of input audion before shifting pitch; So our project is divided into the following sections:
 - gender ditection
 - find pitch
 - shift pitch according to gender
-- plot audio pitch before and after of shifting
+- plot pitch before and after of shifting
 
 
-# gender detection
+# Gender detection
 I define a gender detection function wichh uses fourier series and power spectrum to find max point. After that our function decides about the gender of audio according 
 to a threshold. 
-\
-\ 
+
+
 We can also use an AI model like regression or neural network and etc; But these models have more calculation load.
 
-# find pitch
+# Find pitch
 I use librosa library to find the pitch of input audio and it's useful to plot our pitch according to frequency.
 
-# shift pitch according to gender
+# Shift pitch according to gender
 After finding gender, we need to shift the pitch but if our gender is male, we should shift upthe pitch and if our gender is female, we should shift down the pitch.
 
-# plot audio pitch before and after of shifting
+# Plot pitch before and after of shifting
 Finally, we should design a plot pitch function to plot input audio's pithch before and after of shifting
