@@ -59,9 +59,9 @@ def pitchChanger(v, sr, filepath1):
     gender = genderRecognition(filepath1)
     # change the pitch according to gender
     if gender == "male":
-        v = librosa.effects.pitch_shift(v, sr=sr, n_steps=6)
+        v = librosa.effects.pitch_shift(v, sr=sr, n_steps=5)
     elif gender == "female":
-        v = librosa.effects.pitch_shift(v, sr=sr, n_steps=-6)
+        v = librosa.effects.pitch_shift(v, sr=sr, n_steps=-5)
 
     return v
 
@@ -78,7 +78,7 @@ filepath = Path(my_file)
 changed_pitch_voice = pitchChanger(voice, sr, my_file)
 
 # write final output
-output_path = filepath.parent / (filepath.stem + "pitch_changed" + filepath.suffix)
+output_path = filepath.parent / (filepath.stem + "_pitch_changed" + filepath.suffix)
 sf.write(str(output_path), changed_pitch_voice, sr)
 
 
