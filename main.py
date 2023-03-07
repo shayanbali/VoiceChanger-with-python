@@ -83,7 +83,7 @@ sf.write(str(output_path), changed_pitch_voice, sr)
 
 
 plotPitch(my_file)
-plotPitch(filepath.stem + "pitch_changed" + filepath.suffix)
+plotPitch(filepath.stem + "_pitch_changed" + filepath.suffix)
 
 
 
